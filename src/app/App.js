@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import firebase from 'firebase';
 
 import './App.css';
+import UploadFile from '../componets/formFile/FormFile';
 
 const App = () => {
   const [valor, setValor] = useState()
@@ -42,6 +43,7 @@ const App = () => {
         </div>
       </div>
 
+      <UploadFile />
     </div>
   );
 }

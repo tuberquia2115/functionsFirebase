@@ -45,7 +45,6 @@ const FormFile = () => {
         setImgUser(user.photoURL);
         setName(user.displayName);
         serIdUser(user.uid)
-
         firebase.auth().signOut()
     }
     const SignOut = () => {

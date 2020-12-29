@@ -8,10 +8,8 @@ const AuthGoogle = async () => {
         if (result) {
             return result.user
         }
-        console("autenticaion correcta", result.user)
         return undefined
     } catch (error) {
-        alert("no se puede subir el archivo esta muy pesado", error)
         console.error("Hubo un error en la autenticacion", error)
     }
 }

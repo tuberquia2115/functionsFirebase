@@ -60,8 +60,25 @@ exports.updateVerduras = functions.firestore.document('/verduras/{idVerduras}').
 
     return change.after.ref.set({
         precio: precio + 500
-    }, { merge: true }).then(()=>console.log(`este es el id que se aptualizo ${idVerduras}`)
+    }, { merge: true }).then(() => console.log(`este es el id que se aptualizo ${idVerduras}`)
     )
 
 
+})
+
+exports.validateSTORAGE = functions.storage.bucket('functions-2d8a6.appspot.com').object().onFinalize(async (object, callball) => {
+    const filePath = object.name;
+    const storageMBByte = 5 * 1000000;
+    const fileSize = object.size;
+
+    const validateSize = () => {
+        if (fileSize > storageMBByte) {
+            return console.log("EL archivo supera los 5MB  de almaceniento")
+        } else {
+            console.log("Archivo se almacenó correctamente");
+        }
+        return filePath
+    }
+
+    return validateSize()
 })
